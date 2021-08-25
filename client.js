@@ -16,6 +16,7 @@ function submitAnimal(){
     }
     console.log('The animal being added is', animal)
 
+    //Append values to table
     $('.table').append(`
 <tr class = "newRow">
                 <td id = "appLn">${animal.name}</td>
@@ -26,6 +27,14 @@ function submitAnimal(){
                 <td id = "appSalary">${animal.photo}</td>
                 <td><button class="btn btn-danger" id = "deleteBtn" >Delete</button></td>
 </tr>`)
+
+    //Clear values
+    $('#nameIn').val('');
+    $('#speciesIn').val('');
+    $('#ageIn').val('');
+    $('#surplusIn').val('');
+    $('#costIn').val('');
+    $('#photoIn').val('');
 }
 
 function readyNow(){
