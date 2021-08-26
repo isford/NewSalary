@@ -65,11 +65,12 @@ function calculateMonthly (animalArray){
 function showPhoto(){
     console.log('See Animal clicked')
     //$(this).closest('.newAnimal').
+    window.open(`https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/African_penguin_side_profile.jpg/440px-African_penguin_side_profile.jpg`);
 }
 
 function readyNow(){
     console.log('JQ Loaded');
     $('#submit').on('click', submitAnimal)
     //$('#submit').on('click', calculateMonthly)
-    $(`.table`).on('click', '#photoBtn', showPhoto)
+    $(`.table`).on('click', `#photoBtn`, showPhoto)
 }
