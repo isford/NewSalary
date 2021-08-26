@@ -19,7 +19,7 @@ function submitAnimal(){
 
     //Append values to table
     $('.table').append(`
-<tr class = "newAnimal">
+<tr class = "newAnimal" id = ${animal}>
                 <td>${animal.name}</td>
                 <td>${animal.species}</td>
                 <td>${animal.age}</td>
@@ -58,18 +58,29 @@ function calculateMonthly (animalCostArray){
     for (let i = 0; i < animalCostArray.length; i++) {
         monthlyTotal += animalCostArray[i]
     }
+    //Divide by months
+    monthlyTotal = monthlyTotal/12
     //Append Cost
+    $('.monthlyCost').empty();
     $('.monthlyCost').append(monthlyTotal)
     console.log('Monthly total is', monthlyTotal)
     return monthlyTotal;
 }
 
-console.log('The animals in the array are',animalArray)
+//console.log('The animals in the array are',animalArray)
 
 function showPhoto(){
     console.log('See Animal clicked',animalArray)
-    //$(this).closest('.newAnimal').window.open(newAnimal.photo)
-    window.open(`${animalArray[0].photo}`);
+
+    for (let i = 0; i <animalArray.length; i++){
+        if (animalArray[i] == $(this).closest(`#${animal}`))
+            window.open(`${animalArray[i].photo}`)
+        else{
+            alert('Not a valid URL');
+        }
+    }
+
+    ;
 }
 
 function readyNow(){
