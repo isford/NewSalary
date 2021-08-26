@@ -46,9 +46,7 @@ function submitAnimal(){
     $('#photoIn').val('');
 
     //console.log('Values in array are', animalArray)
-    calculateMonthly(animalCostArray);
-    //check if animal is in array
-    console.log(animalArray)
+    calculateMonthly(animalCostArray);  
 }
 
 function calculateMonthly (animalCostArray){
@@ -66,10 +64,12 @@ function calculateMonthly (animalCostArray){
     return monthlyTotal;
 }
 
-function showPhoto(animal){
-    console.log('See Animal clicked')
+console.log('The animals in the array are',animalArray)
+
+function showPhoto(){
+    console.log('See Animal clicked',animalArray)
     //$(this).closest('.newAnimal').window.open(newAnimal.photo)
-    window.open(`${animal.photo}`);
+    window.open(`${animalArray[0].photo}`);
 }
 
 function readyNow(){
