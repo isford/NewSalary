@@ -2,7 +2,8 @@ console.log('JS Loaded');//JS Test
 
 $(document).ready(readyNow);//Loading JQ
 
-let animalArray = [];//Animal cost added to array to find total
+let animalCostArray = [];//Animal cost added to array to find total
+let = animalArray = [];//Saves all animals locally to be referenced later
 
 function submitAnimal(){
     //console.log('Submit Clicked')
@@ -33,8 +34,9 @@ function submitAnimal(){
     </tr>`)
 
     //Pushes cost to array
-    animalArray.push(Number($('#costIn').val()));
-
+    animalCostArray.push(Number($('#costIn').val()));
+    //pushes new animal into array
+    animalArray.push(animal);
     //Clear values
     $('#nameIn').val('');
     $('#speciesIn').val('');
@@ -44,17 +46,19 @@ function submitAnimal(){
     $('#photoIn').val('');
 
     //console.log('Values in array are', animalArray)
-    calculateMonthly(animalArray);
+    calculateMonthly(animalCostArray);
+    //check if animal is in array
+    console.log(animalArray)
 }
 
-function calculateMonthly (animalArray){
+function calculateMonthly (animalCostArray){
     //console.log('Calc monthly running')
     //Declaring default total monthly cost
     let monthlyTotal = 0;
 
     //Calculate Monthly Cost
-    for (let i = 0; i < animalArray.length; i++) {
-        monthlyTotal += animalArray[i]
+    for (let i = 0; i < animalCostArray.length; i++) {
+        monthlyTotal += animalCostArray[i]
     }
     //Append Cost
     $('.monthlyCost').append(monthlyTotal)
@@ -62,10 +66,10 @@ function calculateMonthly (animalArray){
     return monthlyTotal;
 }
 
-function showPhoto(){
+function showPhoto(animal){
     console.log('See Animal clicked')
-    //$(this).closest('.newAnimal').
-    window.open(`https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/African_penguin_side_profile.jpg/440px-African_penguin_side_profile.jpg`);
+    //$(this).closest('.newAnimal').window.open(newAnimal.photo)
+    window.open(`${animal.photo}`);
 }
 
 function readyNow(){
