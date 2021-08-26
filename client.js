@@ -18,13 +18,17 @@ function submitAnimal(){
 
     //Append values to table
     $('.table').append(`
-<tr class = "newRow">
-                <td id = "appLn">${animal.name}</td>
-                <td id = "appId">${animal.species}</td>
-                <td id = "appTitle">${animal.age}</td>
-                <td id = "appSalary">${animal.surplus}</td>
-                <td id = "appSalary">${animal.cost}</td>
-                <td id = "appSalary">${animal.photo}</td>
+<tr class = "newAnimal">
+                <td>${animal.name}</td>
+                <td>${animal.species}</td>
+                <td>${animal.age}</td>
+                <td>${animal.surplus}</td>
+                <td>${animal.cost}</td>
+                <td>
+                <button id = "photoBtn">
+                See Animal
+                </button>
+                </td>
                 <td><button class="btn btn-danger" id = "deleteBtn" >Delete</button></td>
     </tr>`)
 
@@ -58,8 +62,14 @@ function calculateMonthly (animalArray){
     return monthlyTotal;
 }
 
+function showPhoto(){
+    console.log('See Animal clicked')
+    //$(this).closest('.newAnimal').
+}
+
 function readyNow(){
     console.log('JQ Loaded');
     $('#submit').on('click', submitAnimal)
     //$('#submit').on('click', calculateMonthly)
+    $(`.table`).on('click', '#photoBtn', showPhoto)
 }
