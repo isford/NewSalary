@@ -50,7 +50,6 @@ function submitAnimal(){
 }
 
 function calculateMonthly (animalCostArray){
-    //console.log('Calc monthly running')
     //Declaring default total monthly cost
     let monthlyTotal = 0;
 
@@ -67,8 +66,6 @@ function calculateMonthly (animalCostArray){
     return monthlyTotal;
 }
 
-//console.log('The animals in the array are',animalArray)
-
 function showPhoto(){
     console.log('See Animal clicked',animalArray)
 
@@ -83,9 +80,14 @@ function showPhoto(){
     ;
 }
 
+function deleteAnimal(){
+    console.log('Delete button clicked');
+    $(this).closest('.newAnimal').remove();
+}
+
 function readyNow(){
     console.log('JQ Loaded');
     $('#submit').on('click', submitAnimal)
-    //$('#submit').on('click', calculateMonthly)
     $(`.table`).on('click', `#photoBtn`, showPhoto)
+    $(`.table`).on('click', `#deleteBtn`, deleteAnimal)
 }
